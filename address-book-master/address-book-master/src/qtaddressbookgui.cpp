@@ -42,8 +42,34 @@ void QtAddressBookGUI::createWidgets()
     list->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
 
     newContactButton = new QPushButton("New Contact");
-    editContactButton = new QPushButton("Edit");
-    deleteContactButton = new QPushButton("Delete");
+
+
+ pal.setColor( QPalette::Active, QPalette::Button, Qt::red);
+  newContactButton->setPalette(pal);
+newContactButton->setAutoFillBackground(true);
+
+//QPixmap pixmap(":/gitintro/2.jpg");
+//QIcon ButtonIcon(pixmap);
+//newContactButton->setIcon(ButtonIcon);
+//newContactButton->setIconSize(pixmap.rect().size());
+
+//newContactButton->setObjectName(QString::fromUtf8("newContactButton"));
+//newContactButton->setIcon(QIcon(QPixmap("E:/gitintro/address-book-master/address-book-master/src/2.jpg")));
+//newContactButton->show();
+
+
+
+
+// QPushbutton *button = new QPushbutton;
+ newContactButton->setIcon(QIcon("E:/gitintro/address-book-master/address-book-master/src/1.jpg"));
+//newContactButton->setIconSize(QSize(65,65));
+//newContactButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 255);"));
+
+
+editContactButton = new QPushButton("Edit");
+ deleteContactButton = new QPushButton("Delete");
+
+
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(newContactButton);
@@ -53,11 +79,14 @@ void QtAddressBookGUI::createWidgets()
     QVBoxLayout *rightSideLayout = new QVBoxLayout();
     rightSideLayout->addWidget(detailView);
     rightSideLayout->addLayout(buttonLayout);
+list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 100, 255);"));
 
     QHBoxLayout *mainLayout = new QHBoxLayout();
     mainLayout->addWidget(list);
     mainLayout->addLayout(rightSideLayout);
-    
+
+
+   //  QVBoxLayout* layout = new QVBoxLayout(centralWidget);
     //Connect contact list to the detail form
     connect(list, 
             SIGNAL(contactSelected(Contact::ContactId)),
@@ -73,6 +102,7 @@ void QtAddressBookGUI::createWidgets()
     connect(editContactButton, SIGNAL(clicked()),
             this, SLOT(editContact()));
 
+
     //tell the sub-widgets to refresh their data from
     //
     //Will be emitted when the view is notified by
@@ -82,6 +112,13 @@ void QtAddressBookGUI::createWidgets()
 
     QFrame *mainWidget = new QFrame();
     mainWidget->setLayout(mainLayout);
+
+    //mycode
+//mainWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 100, 255);"));
+
+mainWidget->setStyleSheet("background-image:E:/gitintro/address-book-master/address-book-master/src/test.png");
+  //  QString style = "QMainWindow { background-color: #fff; }";  // or other color
+   // this->setStyleSheet(style);
 
     setCentralWidget(mainWidget);
 
@@ -206,4 +243,3 @@ void QtAddressBookGUI::deleteContact()
         return;
     }
 }
-

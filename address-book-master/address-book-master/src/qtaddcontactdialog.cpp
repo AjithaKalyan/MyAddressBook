@@ -15,7 +15,8 @@ QtAddContactDialog::QtAddContactDialog(Contact &c, QWidget *parent, Qt::WindowFl
     QHBoxLayout *buttonContainer = new QHBoxLayout();
     QPushButton *addButton = new QPushButton("Add");
     QPushButton *cancelButton = new QPushButton("Cancel");
-    
+    addButton->setStyleSheet( "QPushButton {""background-color:skyblue;""}");
+
     buttonContainer->addWidget(addButton);
     buttonContainer->addWidget(cancelButton);
     mainContainer->addLayout(buttonContainer);

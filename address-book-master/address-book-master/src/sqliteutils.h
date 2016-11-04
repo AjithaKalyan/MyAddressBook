@@ -1,8 +1,12 @@
 #ifndef SQLITE_UTILS_H
 #define SQLITE_UTILS_H
 
+#include <Qtsql>
+#include <QSqlDatabase>
 #include <string>
 #include "sqlite3.h"
+
+
 /***********************************************************************
     Class: SQLiteDBHandle
 

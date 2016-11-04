@@ -3,7 +3,7 @@
 
 #include <sqlite3.h>
 #include <Qtsql>
-#include <QsqlDatabase>
+#include <QSqlDatabase>
 #include <string>
 #include <vector>
 #include "addressbookmodel.h"

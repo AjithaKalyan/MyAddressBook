@@ -10,14 +10,31 @@ QtContactForm::QtContactForm(QWidget *parent) :
         lastNameField(new QLineEdit()),
         addressField(new QLineEdit()),
         phoneNumberField(new QLineEdit()),
-        emailField(new QLineEdit())
+        emailField(new QLineEdit()),
+      testField(new QLineEdit())
 {
-    addRow("First Name", firstNameField);
-    addRow("Last Name", lastNameField);
-    addRow("Address", addressField);
-    addRow("Phone Number", phoneNumberField);
+
+
+
+
+        //Set Label Alignment
+       // label->setAlignment(Qt::AlignCenter);
+
+         //   rightlayout->addWidget(label);
+
+       // textLabel->
+    addRow("First Name  <font color='red'>*</font>", firstNameField);
+firstNameField->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 255);"));
+
+        addRow("Last Name #", lastNameField);
+        lastNameField->setPlaceholderText("Enter Last Name");
+    addRow("Address <font color='red'>*</font>", addressField);
+    addRow("Phone Number ", phoneNumberField);
     addRow("Email", emailField);
-}
+    addRow("Test",testField);
+
+
+   }
 
 void QtContactForm::clear()
 {
@@ -26,4 +43,5 @@ void QtContactForm::clear()
     addressField->setText("");
     phoneNumberField->setText("");
     emailField->setText("");
+    testField->setAutoFillBackground(true);
 }
