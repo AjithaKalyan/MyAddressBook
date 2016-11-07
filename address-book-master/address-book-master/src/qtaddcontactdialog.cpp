@@ -35,6 +35,6 @@ void QtAddContactDialog::accept()
     outContact.address = contactForm->addressField->text().toStdString();
     outContact.phoneNumber = contactForm->phoneNumberField->text().toStdString();
     outContact.email = contactForm->emailField->text().toStdString();
-
+    outContact.bg=contactForm->bgField->text().toStdString();
     QDialog::accept();
 }

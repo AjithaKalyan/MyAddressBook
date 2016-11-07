@@ -3,6 +3,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QInputDialog>
 #include "addressbookcontroller.h"
 #include "addressbookmodel.h"
 #include "addressbookview.h"
@@ -39,6 +40,7 @@ class QtAddressBookGUI : public QMainWindow, public AddressBookView
         void addContact();
         void deleteContact();
         void editContact();
+        void findContact();
 
 
     private:
@@ -50,6 +52,7 @@ class QtAddressBookGUI : public QMainWindow, public AddressBookView
         QPushButton *newContactButton;
         QPushButton *editContactButton;
         QPushButton *deleteContactButton;
+        QPushButton *findContactButton;
        // QPushButton *
         QPalette pal;
 

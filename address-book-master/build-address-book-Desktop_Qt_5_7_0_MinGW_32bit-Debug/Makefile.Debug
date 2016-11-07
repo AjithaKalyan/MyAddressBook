@@ -380,6 +380,15 @@ src/tmp/moc_qtaddressbookgui.cpp: C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QInputDialog \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qinputdialog.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextoption.h \
 		../address-book-master/src/addressbookcontroller.h \
 		../address-book-master/src/contact.h \
 		../address-book-master/src/addressbookmodel.h \
@@ -391,7 +400,6 @@ src/tmp/moc_qtaddressbookgui.cpp: C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlistview.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
@@ -410,11 +418,6 @@ src/tmp/moc_qtaddressbookgui.cpp: C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextoption.h \
 		../address-book-master/src/qtcontactform.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qformlayout.h \
@@ -1141,13 +1144,21 @@ src/tmp/addressbookcontroller.o: ../address-book-master/src/addressbookcontrolle
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QPushButton \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qpushbutton.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QInputDialog \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qinputdialog.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qframe.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextoption.h \
 		../address-book-master/src/qtcontactlist.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QListWidget \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlistwidget.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlistview.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractitemview.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qframe.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtCore/qabstractitemmodel.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtCore/qitemselectionmodel.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qabstractitemdelegate.h \
@@ -1166,11 +1177,6 @@ src/tmp/addressbookcontroller.o: ../address-book-master/src/addressbookcontrolle
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextoption.h \
 		../address-book-master/src/qtcontactform.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qformlayout.h \
@@ -1689,6 +1695,14 @@ src/tmp/qtaddressbookgui.o: ../address-book-master/src/qtaddressbookgui.cpp C:/Q
 		../address-book-master/src/addressbookmodel.h \
 		../address-book-master/src/errorinfo.h \
 		../address-book-master/src/qtaddressbookgui.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QInputDialog \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qinputdialog.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qdialog.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlineedit.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextcursor.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextformat.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qpen.h \
+		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextoption.h \
 		../address-book-master/src/qtcontactlist.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QListWidget \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlistwidget.h \
@@ -1713,18 +1727,12 @@ src/tmp/qtaddressbookgui.o: ../address-book-master/src/qtaddressbookgui.cpp C:/Q
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QLabel \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlabel.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QLineEdit \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qlineedit.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextcursor.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextformat.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qpen.h \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtGui/qtextoption.h \
 		../address-book-master/src/qtcontactform.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QFormLayout \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qformlayout.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QLayout \
 		../address-book-master/src/qtaddcontactdialog.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QDialog \
-		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/qdialog.h \
 		C:/Qt/Qt5.7.0/5.7/mingw53_32/include/QtWidgets/QWidget \
 		../address-book-master/src/qteditcontactdialog.h \
 		../address-book-master/src/qterrordialog.h \

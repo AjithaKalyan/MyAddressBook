@@ -7,6 +7,7 @@ CONFIG+=qt
 CONFIG+=debug
 CONFIG+=warn_on
 MOC_DIR=src/tmp
+QT += widgets
 #LIBS+=-lsqlite3
 QT += sql widgets
 QT += gui
@@ -31,7 +32,8 @@ HEADERS += src/addressbookcontroller.h \
            src/qterrordialog.h \
            src/sqlitedatasource.h \
            src/sqliteutils.h \
-           src/sqlite3.h
+           src/sqlite3.h \
+    src/finddialog.h
 SOURCES += src/addressbookcontroller.cpp \
            src/contact.cpp \
            src/dummydatasource.cpp \
@@ -45,4 +47,5 @@ SOURCES += src/addressbookcontroller.cpp \
            src/qterrordialog.cpp \
            src/sqlitedatasource.cpp \
            src/sqliteutils.cpp \
-           src/sqlite3.c
+           src/sqlite3.c \
+    src/finddialog.cpp

@@ -68,24 +68,26 @@ newContactButton->setAutoFillBackground(true);
 
 editContactButton = new QPushButton("Edit");
  deleteContactButton = new QPushButton("Delete");
-
+findContactButton=new QPushButton("Find");
 
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
     buttonLayout->addWidget(newContactButton);
     buttonLayout->addWidget(editContactButton);
     buttonLayout->addWidget(deleteContactButton);
+    buttonLayout->addWidget (findContactButton);
 
     QVBoxLayout *rightSideLayout = new QVBoxLayout();
     rightSideLayout->addWidget(detailView);
     rightSideLayout->addLayout(buttonLayout);
-list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 100, 255);"));
+list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 10, 25);"));
 
     QHBoxLayout *mainLayout = new QHBoxLayout();
     mainLayout->addWidget(list);
     mainLayout->addLayout(rightSideLayout);
 
 
+//widget.setStyleSheet("background-image: url(/home/asier/imagenes/fondos/14999-Midsommarblomster.jpg);background-attachment: fixed");
    //  QVBoxLayout* layout = new QVBoxLayout(centralWidget);
     //Connect contact list to the detail form
     connect(list, 
@@ -102,6 +104,8 @@ list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 100, 255);"));
     connect(editContactButton, SIGNAL(clicked()),
             this, SLOT(editContact()));
 
+connect(findContactButton, SIGNAL(clicked()),
+        this, SLOT(findContact()));
 
     //tell the sub-widgets to refresh their data from
     //
@@ -116,7 +120,7 @@ list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 100, 255);"));
     //mycode
 //mainWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 100, 255);"));
 
-mainWidget->setStyleSheet("background-image:E:/gitintro/address-book-master/address-book-master/src/test.png");
+
   //  QString style = "QMainWindow { background-color: #fff; }";  // or other color
    // this->setStyleSheet(style);
 
@@ -243,3 +247,40 @@ void QtAddressBookGUI::deleteContact()
         return;
     }
 }
+
+void QtAddressBookGUI::findContact()
+{
+  QMessageBox msgBox;
+    msgBox.setText("Example for Find Button");
+    msgBox.setWindowTitle("Find Something");
+    msgBox.exec();
+
+
+//    Contact newContact;
+  //  QtAddContactDialog *addDialog = new QtAddContactDialog(newContact, this);
+   // QtErrorDialog *errDialog = new QtErrorDialog("", this);
+
+    //while(addDialog->exec())
+    //{
+      //  ErrorInfo e = appController.submitContact(newContact);
+
+        //if(e.code == ERR_OK)
+        //{
+          //  break;
+        //}
+
+        //display error dialog
+        //errDialog->setText(e.msg.c_str());
+        //errDialog->exec();
+
+  //  }
+
+    //Delete the dialog objects
+    //Qt only deletes them when the parent is deleted
+    //If I don't delete them manually here, new ones will be made
+    //every time this function is called and only deleted when the
+    //program is exited.
+    //delete addDialog;
+//    delete errDialog;
+
+   }
