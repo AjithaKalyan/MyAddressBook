@@ -9,6 +9,7 @@
 #include "contact.h"
 #include "errorinfo.h"
 #include "sqliteutils.h"
+#include "finddialog.h"
 
 
 //Non Member Utility Functions
@@ -282,24 +283,37 @@ ErrorInfo SQLiteDataSource::deleteAllContacts()
     return ErrorInfo(ERR_OK, "OK");
 }
 
-ErrorInfo SQLiteDataSource::findContact(Contact::ContactId id,Contact& c,Contact::ContactRecordSet &rs)
+ErrorInfo SQLiteDataSource::findContact(Contact::ContactId id,Contact& c)
 
 {
     std::string sqlStr = "SELECT * FROM Contacts WHERE id=?;";
 
     SQLiteStatementHandle queryStatement(sqlStr, database.get());
-    sqlite3_bind_int(queryStatement.get(), 1, id);
+
+    sqlite3_bind_text(queryStatement.get(), 1, c.firstName.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(queryStatement.get(), 2, c.lastName.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(queryStatement.get(), 3, c.phoneNumber.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(queryStatement.get(), 4, c.address.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(queryStatement.get(), 5, c.email.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(queryStatement.get(), 6, c.bg.c_str(),-1,SQLITE_STATIC);
+    sqlite3_bind_int(queryStatement.get(),  7, id);
+
+    //bind parameters to SQL statement
+    //sqlite3_bind_int(queryStatement.get(), 1, id);
+sqlite3_bind_int(queryStatement.get());
+
 
     //execute statement & check result
     int stepResult = sqlite3_step(queryStatement.get());
 
-    if(stepResult != SQLITE_ROW)
+    if(stepResult != SQLITE_DONE)
     {
         return ErrorInfo(ERR_DATASOURCE_ERROR, "Could not retrieve contact.");
-    }
 
+    }
+    notifyViews();
     //package column values into Out parameter
-    fillContactFromRow(queryStatement.get(), c);
+    //fillContactFromRow(queryStatement.get(), c);
 
     return ErrorInfo(ERR_OK, "OK");
 }

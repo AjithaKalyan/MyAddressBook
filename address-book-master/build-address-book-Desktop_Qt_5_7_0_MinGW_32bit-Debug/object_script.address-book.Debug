@@ -13,6 +13,7 @@ INPUT(
 ./src\tmp\sqlitedatasource.o
 ./src\tmp\sqliteutils.o
 ./src\tmp\sqlite3.o
+./src\tmp\finddialog.o
 ./src\tmp\moc_qtaddcontactdialog.o
 ./src\tmp\moc_qtaddressbookgui.o
 ./src\tmp\moc_qtcontactdetailview.o
@@ -20,4 +21,5 @@ INPUT(
 ./src\tmp\moc_qtcontactlist.o
 ./src\tmp\moc_qteditcontactdialog.o
 ./src\tmp\moc_qterrordialog.o
+./src\tmp\moc_finddialog.o
 );

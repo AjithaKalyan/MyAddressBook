@@ -10,6 +10,7 @@
 #include "addressbookview.h"
 #include "contact.h"
 #include "sqliteutils.h"
+#include "finddialog.h"
 
 /***********************************************************************
     Class: SQLiteDataSource
@@ -36,7 +37,7 @@ class SQLiteDataSource : public AddressBookModel
         virtual ErrorInfo updateContact(Contact::ContactId id, const Contact&);
         virtual ErrorInfo deleteContact(Contact::ContactId id);
         virtual ErrorInfo deleteAllContacts();
-        virtual ErrorInfo findContact(Contact::ContactId id,Contact& c,Contact::ContactRecordSet &rs);
+        virtual ErrorInfo findContact(Contact::ContactId id, Contact& c);
   
     private:
         void createTable();

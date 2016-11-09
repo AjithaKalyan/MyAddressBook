@@ -9,6 +9,7 @@
 #include "addressbookview.h"
 #include "qtcontactlist.h"
 #include "qtcontactdetailview.h"
+#include "finddialog.h"
 
 /***********************************************************************
     Class: QtAddressBookGUI
@@ -55,6 +56,8 @@ class QtAddressBookGUI : public QMainWindow, public AddressBookView
         QPushButton *findContactButton;
        // QPushButton *
         QPalette pal;
+        FindDialog *dialog;
+        QMap<QString, QString> contacts;
 
 
         AddressBookController& appController;

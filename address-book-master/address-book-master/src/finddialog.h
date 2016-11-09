@@ -2,6 +2,29 @@
 #define FINDDIALOG_H
 
 #include <QDialog>
-#include <QWidget>
 
-#endif // FINDDIALOG_H
+class QLineEdit;
+class QPushButton;
+
+class FindDialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    FindDialog(QWidget *parent = 0);
+    QString getFindText();
+
+public slots:
+    void findClicked();
+  //  void accept();
+//private:
+  //  void fillForm();
+//    QtContactForm *contactForm;
+//    Contact &contactToEdit;
+private:
+    QPushButton *findButton;
+    QLineEdit *lineEdit;
+    QString findText;
+
+};
+#endif

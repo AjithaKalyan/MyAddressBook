@@ -1,40 +1,40 @@
-#include <QDialog>
+#include <QtWidgets>
+#include "finddialog.h"
 
-class QLineEdit;
-class QPushButton;
-
-class FindDialog : public QDialog
+FindDialog::FindDialog(QWidget *parent)
+    : QDialog(parent)
 {
-    Q_OBJECT
+    QLabel *findLabel = new QLabel(tr("Enter the name of a contact:"));
+    lineEdit = new QLineEdit;
 
-public:
-    FindDialog(QWidget *parent = 0);
-    QString getFindText();
+    findButton = new QPushButton(tr("&Find"));
+    findText = "";
 
-public slots:
-    void findClicked();
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(findLabel);
+    layout->addWidget(lineEdit);
+    layout->addWidget(findButton);
 
-private:
-    QPushButton *findButton;
-    QLineEdit *lineEdit;
-    QString findText;
+    setLayout(layout);
+    setWindowTitle(tr("Find a Contact"));
+    connect(findButton, SIGNAL(clicked()), this, SLOT(findClicked()));
+    connect(findButton, SIGNAL(clicked()), this, SLOT(accept()));
+}
+void FindDialog::findClicked()
+{
+    QString text = lineEdit->text();
 
-    FindDialog::FindDialog(QWidget *parent)        : QDialog(parent)
-    {
-        QLabel *findLabel = new QLabel(tr("Enter the name of a contact:"));
-        lineEdit = new QLineEdit;
-
-        findButton = new QPushButton(tr("&Find"));
-        findText = "";
-
-        QHBoxLayout *layout = new QHBoxLayout;
-        layout->addWidget(findLabel);
-        layout->addWidget(lineEdit);
-        layout->addWidget(findButton);
-
-        setLayout(layout);
-        setWindowTitle(tr("Find a Contact"));
-        connect(findButton, SIGNAL(clicked()), this, SLOT(findClicked()));
-        connect(findButton, SIGNAL(clicked()), this, SLOT(accept()));
+    if (text.isEmpty()) {
+        QMessageBox::information(this, tr("Empty Field"),
+            tr("Please enter a name."));
+        return;
+    } else {
+        findText = text;
+        lineEdit->clear();
+        hide();
     }
-};
+}
+QString FindDialog::getFindText()
+{
+    return findText;
+}

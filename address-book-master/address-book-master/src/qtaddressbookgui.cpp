@@ -4,6 +4,7 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QFrame>
+#include <QDebug>
 
 #include "addressbookview.h"
 #include "addressbookcontroller.h"
@@ -15,6 +16,7 @@
 #include "qteditcontactdialog.h"
 #include "qterrordialog.h"
 #include "contact.h"
+#include "finddialog.h"
 
 QtAddressBookGUI::QtAddressBookGUI(AddressBookController &controller, AddressBookModel &model,
     QWidget *parent, Qt::WindowFlags flags) : QMainWindow(parent, flags),
@@ -44,9 +46,10 @@ void QtAddressBookGUI::createWidgets()
     newContactButton = new QPushButton("New Contact");
 
 
- pal.setColor( QPalette::Active, QPalette::Button, Qt::red);
-  newContactButton->setPalette(pal);
-newContactButton->setAutoFillBackground(true);
+    pal.setColor( QPalette::Active, QPalette::Button, Qt::red);
+    newContactButton->setPalette(pal);
+    newContactButton->setAutoFillBackground(true);
+
 
 //QPixmap pixmap(":/gitintro/2.jpg");
 //QIcon ButtonIcon(pixmap);
@@ -62,13 +65,14 @@ newContactButton->setAutoFillBackground(true);
 
 // QPushbutton *button = new QPushbutton;
  newContactButton->setIcon(QIcon("E:/gitintro/address-book-master/address-book-master/src/1.jpg"));
-//newContactButton->setIconSize(QSize(65,65));
+
+ //newContactButton->setIconSize(QSize(65,65));
 //newContactButton->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 255);"));
 
 
-editContactButton = new QPushButton("Edit");
+ editContactButton = new QPushButton("Edit");
  deleteContactButton = new QPushButton("Delete");
-findContactButton=new QPushButton("Find");
+ findContactButton=new QPushButton("Find");
 
 
     QHBoxLayout *buttonLayout = new QHBoxLayout();
@@ -80,7 +84,7 @@ findContactButton=new QPushButton("Find");
     QVBoxLayout *rightSideLayout = new QVBoxLayout();
     rightSideLayout->addWidget(detailView);
     rightSideLayout->addLayout(buttonLayout);
-list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 10, 25);"));
+//    list->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 10, 25);"));
 
     QHBoxLayout *mainLayout = new QHBoxLayout();
     mainLayout->addWidget(list);
@@ -171,49 +175,8 @@ void QtAddressBookGUI::addContact()
 
 void QtAddressBookGUI::editContact()
 {
-    Contact::ContactId idToEdit = list->getSelectedContactId();
-    
-    Contact editingContact;
-    ErrorInfo getContactErrorStatus = dataSource.getContact(idToEdit, editingContact);
-    
-    QtErrorDialog *errDialog = new QtErrorDialog("", this);
 
-    if(getContactErrorStatus.code != ERR_OK)
-    {
-        //The id of the Contact user wants to edit doesn't exist
-        //Should never happen since they are selecting it from a list
-        //of existing id
-        //display error dialog
-        errDialog->setText(getContactErrorStatus.msg.c_str());
-        errDialog->exec();
 
-        //Qt only automagically deletes child objects when parent is destroyed
-        //If I don't delete this here more and more dialogs will build up everytime
-        //this function is called, only being destroyed when the parent window
-        //(i.e. the application) is terminated.
-        delete errDialog;
-        return;
-    }
-   
-    QtEditContactDialog *editDialog = new QtEditContactDialog(editingContact, this);
-
-    while(editDialog->exec())
-    {
-        ErrorInfo editErrorStatus = appController.editContact(idToEdit, editingContact);
-
-        if(editErrorStatus.code == ERR_OK)
-        {
-            break;
-        }
-
-        //display error dialog
-        errDialog->setText(editErrorStatus.msg.c_str());
-        errDialog->exec();
-    }
-
-    //see comment above about manually deleting dialogs after each run 
-    delete errDialog;
-    delete editDialog;
 }
 
 void QtAddressBookGUI::deleteContact()
@@ -250,37 +213,54 @@ void QtAddressBookGUI::deleteContact()
 
 void QtAddressBookGUI::findContact()
 {
-  QMessageBox msgBox;
-    msgBox.setText("Example for Find Button");
-    msgBox.setWindowTitle("Find Something");
-    msgBox.exec();
+ QMessageBox msgBox;
+   // msgBox.setText("Example for Find Button");
+    //msgBox.setWindowTitle("Find Something");
+    //msgBox.exec();
+    //dialog->show();
 
+ Contact::ContactId idTofind = list->getSelectedContactId();
 
-//    Contact newContact;
-  //  QtAddContactDialog *addDialog = new QtAddContactDialog(newContact, this);
-   // QtErrorDialog *errDialog = new QtErrorDialog("", this);
+ Contact editingContact;
+ ErrorInfo getContactErrorStatus = dataSource.getContact(idTofind, editingContact);
 
-    //while(addDialog->exec())
-    //{
-      //  ErrorInfo e = appController.submitContact(newContact);
+ QtErrorDialog *errDialog = new QtErrorDialog("", this);
 
-        //if(e.code == ERR_OK)
-        //{
-          //  break;
-        //}
+ if(getContactErrorStatus.code != ERR_OK)
+ {
+     //The id of the Contact user wants to edit doesn't exist
+     //Should never happen since they are selecting it from a list
+     //of existing id
+     //display error dialog
+     errDialog->setText(getContactErrorStatus.msg.c_str());
+     errDialog->exec();
 
-        //display error dialog
-        //errDialog->setText(e.msg.c_str());
-        //errDialog->exec();
+     //Qt only automagically deletes child objects when parent is destroyed
+     //If I don't delete this here more and more dialogs will build up everytime
+     //this function is called, only being destroyed when the parent window
+     //(i.e. the application) is terminated.
+     delete errDialog;
+     return;
+ }
 
-  //  }
+ FindDialog *findDialog = new FindDialog(this);
 
-    //Delete the dialog objects
-    //Qt only deletes them when the parent is deleted
-    //If I don't delete them manually here, new ones will be made
-    //every time this function is called and only deleted when the
-    //program is exited.
-    //delete addDialog;
-//    delete errDialog;
+ while(findDialog->exec())
+ {
+     ErrorInfo editErrorStatus = appController.findContact(idTofind, editingContact);
 
-   }
+     if(editErrorStatus.code == ERR_OK)
+     {
+         break;
+     }
+
+     //display error dialog
+     errDialog->setText(editErrorStatus.msg.c_str());
+     errDialog->exec();
+ }
+
+ //see comment above about manually deleting dialogs after each run
+ delete errDialog;
+ delete findDialog;
+}
+

@@ -24,18 +24,23 @@ QtContactForm::QtContactForm(QWidget *parent) :
 
        // textLabel->
     addRow("First Name  <font color='red'>*</font>", firstNameField);
-firstNameField->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 255);"));
-firstNameField->setPlaceholderText("Enter First Name");
-        addRow("Last Name #", lastNameField);
-        lastNameField->setPlaceholderText("Enter Last Name");
+  //  firstNameField->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 0, 255);"));
+    firstNameField->setPlaceholderText("Enter First Name");
+
+    addRow("Last Name <font color='red'>*</font>", lastNameField);
+    lastNameField->setPlaceholderText("Enter Last Name");
+
     addRow("Address <font color='red'>*</font>", addressField);
     addressField->setPlaceholderText("Enter Address");
-    addRow("Phone Number ", phoneNumberField);
+
+    addRow("Phone Number <font color='red'>*</font> ", phoneNumberField);
     phoneNumberField->setPlaceholderText("Enter Phone Number");
-    addRow("Email", emailField);
+
+    addRow("Email <font color='red'>*</font>", emailField);
     emailField->setPlaceholderText("Enter Email");
-    addRow("bg",bgField);
-bgField->setPlaceholderText("Enter Blood Group Data");
+
+    addRow("bg <font color='red'>*</font>",bgField);
+    bgField->setPlaceholderText("Enter Blood Group Data");
 
    }
 
